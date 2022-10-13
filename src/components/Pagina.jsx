@@ -1,6 +1,9 @@
 import React from "react"
 import { useState } from "react";
 
+import imagemInicial from '../images/alunos-pag-inicial.jpg'
+import imagemFinal from '../images/alunos-pag-final.jpg'
+
 export default () => {
     const [alunos, setAlunos] = useState([]);
     const [count, setCount] = useState(1)
@@ -36,23 +39,17 @@ export default () => {
     <>
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Coloque um logo</a>
+        <a className="navbar-brand" href="#">Mach1</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="#secao-dica-1">Dica 1</a>
+              <a className="nav-link" href="#id_formulario_de_cadastro">Cadastrar Alunos</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Dica 2</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Cadastro</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Lista de alunos</a>
+              <a className="nav-link" href="#id_lista_de_alunos">Listar alunos cadastrados</a>
             </li>
           </ul>
         </div>
@@ -60,70 +57,41 @@ export default () => {
     </nav>
     <div className="container pb-5">
       <div className="row">
-        <div className="col">
+        <div className="col d-flex align-items-center">
+          <div>
           <h1 className="display-3 mb-4">
-            Este é um teste de programação Frontend
+            Cadastro de alunos MACH1
           </h1>
           <h3 className="mb-5">
-            Vamos fazer um cadastro básico e uma listagem
+            Para cadastrar alunos clique no botão abaixo
           </h3>
-          <button type="button" className="btn btn-primary">
-            Cadastro aluno
-          </button>
+          <a className="btn btn-success" href="#id_formulario_de_cadastro">Clique aqui</a>
+          </div>
+          
         </div>
         <div className="col">
-          <img src="https://via.placeholder.com/1000x500?text=Coloque+uma+imagem" className="img-fluid" alt="..."/>
+          <img src={imagemInicial} className="img-fluid" alt="..."/>
         </div>
       </div>
     </div>
-    <div className="container bg-secondary bg-opacity-25" id="secao-dica-1">
-      <div className="row">
-        <div className="col">
-          <h1 className="display-3 mb-4 text-center">Dica 1</h1>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col text-center">
-          <img src="https://via.placeholder.com/100x100?text=Coloque+uma+imagem" className="rounded-circle" alt="..."/>
-          <h1>
-            Os links no menu
-          </h1>
-          <h3>
-            Cada link deve navegar para uma aréa correspondente do site
-          </h3>
-        </div>
-        <div className="col text-center">
-          <img 
-            src="https://via.placeholder.com/100x100?text=Coloque+uma+imagem" 
-            className="rounded-circle" alt="..."/> 
-          <h1>
-            Os botões
-          </h1>
-          <h3>
-            Deve navegar para a aréa de cadastro de aluno
-          </h3>
-        </div>
-      </div>
-    </div>
+
     <div className="container pt-5">
       <div className="row">
         <div className="col">
-          <img src="https://via.placeholder.com/400x300?text=Coloque+uma+imagem" className="img-fluid" alt="..."/>
+          <img src={imagemFinal} className="img-fluid" alt="..."/>
         </div>
         <div className="col">
           <h1 className="display-3 mb-4">
-            Dica 2
+            Para remover aluno cadastrado
           </h1>
           <h3>
-            Cada aluno cadastrado deve aparecer na tabela abaixo do formulário, além da inclusão, crie um método para remover o cadastro
+            O botão "Remover aluno" remove as informações de casdastro de alunos. 
           </h3>
-          <button type="button" className=" mt-3 btn btn-primary">
-            Cadastro aluno
-          </button>
+          <p><strong>Atenção ao número de ID de cada cadastro antes de fazer a remoção.</strong></p>
         </div>
       </div>
     </div>      
-    <div className="container mt-5 bg-secondary bg-opacity-25 ">
+    <div className="container mt-5 bg-info bg-opacity-25 " id="id_formulario_de_cadastro">
       <div className="row">
         <di className="col">
           <h1 className="text-center display-3">
@@ -137,11 +105,15 @@ export default () => {
             <label for="id_nome" className="form-label">Nome *</label>
             <input type="text" className="form-control" id="id_nome" 
               placeholder="Digite o nome do aluno" required name="nome" />
+            <small class="form-text text-muted">Preencha com o nome completo.</small>
+
           </div>
           <div className="col">
             <label for="id_email" className="form-label">Email *</label>
             <input type="email" className="form-control" id="id_email" 
               placeholder="name@example.com" required name="email"/>
+            <small class="form-text text-muted">Exemplo: nome@gmail.com.</small>
+  
           </div>
         </div>
         <div className="row">
@@ -149,23 +121,24 @@ export default () => {
             <label for="id_cpf" className="form-label">CPF *</label>
             <input type="text" className="form-control" id="id_cpf" 
               placeholder="000.000.000-00" required name="cpf"/>
+            <small class="form-text text-muted">Preencha o CPF no formato: 000.000.000-00.</small>
+  
           </div>
           <div className="col mt-3">
             <label for="id_curso" className="form-label">Curso *</label>
             <input type="text" className="form-control" id="id_curso" 
               placeholder="Curso do aluno" required name="curso"/>
+            <small class="form-text text-muted">Preencha com o nome completo do curso sem abreviações.</small>
           </div>
         </div>
         <div className="row">
           <div className="col text-center mt-5">
-            <button type="submit" className="btn btn-primary">
-              Cadastrar
-            </button>
+            <button type="submit" className="btn btn-success">Cadastrar aluno</button>
           </div>
         </div>
       </form>
     </div>
-    <div className="container text-center mt-5">
+    <div className="container text-center mt-5" id="id_lista_de_alunos">
       <h1>
         Lista de Alunos
       </h1>
@@ -181,6 +154,13 @@ export default () => {
           </tr>
         </thead>
         <tbody className="table-group-divider">
+          {
+            alunos.length == 0 && (
+              <tr key="nrnhum-aluno">
+                <td colSpan={6}>Nenhum Aluno cadastrado.</td>
+              </tr>
+            )
+          }
             {
                 alunos.map((aluno) => (
                     <tr key={aluno.id}>
@@ -190,9 +170,9 @@ export default () => {
                         <td>{aluno.cpf}</td>
                         <td>{aluno.curso}</td>
                         <td>
-                        <button onClick={() => removerAluno(aluno.id)}>
-                            remover
-                        </button>
+                        <button onClick={() => removerAluno(aluno.id)}
+                        type="button" class="btn btn-danger">Remover aluno</button>
+
                         </td>
                     </tr>
                 ))
