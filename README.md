@@ -3,8 +3,6 @@
 Comecei fazendo esse [projeto usando o HTML estático](https://github.com/anjinha-oliveira/cadastro-de-alunos).
 
 
- 
-
 ![Pagina de alunos](imagens/mach-alunos.png)
 
 
